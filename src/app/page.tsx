@@ -1,4 +1,6 @@
+import { SignedOut } from "@clerk/nextjs";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -7,7 +9,7 @@ export default function Home() {
                 <title>Hello App Router with Next.js & Clerk</title>
                 <meta
                     name="description"
-                    content="A simple Hello World homepage using Next.js and Clerk"
+                    content="A simple Hello World homepage using Next.js and TailwindCSS"
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -17,6 +19,16 @@ export default function Home() {
                 <p className="text-gray-600">
                     This is a simple homepage built with Next.js and Clerk
                 </p>
+
+                <SignedOut>
+                    <Link href="/sign-up">
+                        <div>
+                            <h3 className="text-xl font-bold mb-4 text-blue-500">
+                                Sign in or sign up for an account
+                            </h3>
+                        </div>
+                    </Link>
+                </SignedOut>
             </div>
         </div>
     );
